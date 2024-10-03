@@ -1,46 +1,74 @@
-import React, { Component } from 'react';
-import {View, Text, StyleSheet, FlatList } from 'react-native';
+import React, { Component } from "react";
+import { View, StyleSheet, Text, Switch, Button, TextInput } from "react-native";
 
-import Pessoas from './src/Pessoas/Pessoas'
-
+import { Picker } from "@react-native-picker/picker";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      lista: [
-        { id: 1, nome: "Ana Silva", idade: 28, email: "ana.silva@example.com" },
-        { id: 2, nome: "Bruno Costa", idade: 34, email: "bruno.costa@example.com" },
-        { id: 3, nome: "Carla Souza", idade: 22, email: "carla.souza@example.com" },
-        { id: 4, nome: "Daniel Lima", idade: 30, email: "daniel.lima@example.com" },
-        { id: 5, nome: "Eduarda Alves", idade: 26, email: "eduarda.alves@example.com" },
-        { id: 6, nome: "Felipe Rocha", idade: 29, email: "felipe.rocha@example.com" },
-        { id: 7, nome: "Gabriela Mendes", idade: 31, email: "gabriela.mendes@example.com" },
-        { id: 8, nome: "Henrique Oliveira", idade: 27, email: "henrique.oliveira@example.com" },
-        { id: 9, nome: "Isabela Ferreira", idade: 25, email: "isabela.ferreira@example.com" },
-        { id: 10, nome: "João Pereira", idade: 33, email: "joao.pereira@example.com" }
-      ]
+
+    constructor(props){
+        super(props);
+        this.state = {
+            sexo:0,
+            sexos: [
+                {key: 1, nome: 'Masculino'},
+                {key: 2, nome: 'Feminino'},
+            ]
+        };
     };
-  }
-  render(){
-    return(
-      <View style={styles.container}>
 
-        <FlatList>
-          data={this.state.lista}
-          keyExtractor={(item)=>item.id}
-          renderItem={({item})=><Pessoas data={item}/>}
-        </FlatList>
+    render(){
+        return(
+          <View style={styles.container}>
+            <TextInput
+            style={styles.input}
+            placeholder="Digite seu Nome"
+            underlineColorAndroid="transparent"
+            onChangeText={ (texto) => this.setState({input: texto}) }
+            />
+        <View style={styles.container}>
+            <Text style={styles.logo}>Informe seu sexo:</Text>
+        <Picker 
+        selectedValue={this.state.sexo} 
+        onValueChange={ (itemValue, itemIndex) => this.setState({sexo: itemValue}) }
+        >
+         {sexosItem}
+        </Picker>
+        </View>
 
-      </View>
-    );
-  }
-}
+        <View style={styles.container}>
+            <Text style={styles.logo}>Escolha o seu limite:</Text>
+        </View>
+        <Slider
+          minimumValue={0}
+          maximumValue={10000}
+          onValueChange={(valorSelecionado) =>
+            this.setState({ valor: valorSelecionado })
+          }
+          value={this.state.valor}
+          minimumTrackTintColor="#00FF00"
+          maximumTrackTintColor="#FF0000"
+        />
 
-const styles = StyleSheet.create({
-  conainer:{
-    flex:1,
-  },
-});
+        <Switch
+          value={this.state.status}
+          onValueChange={(valorSwitch) =>
+            this.setState({ status: valorSwitch })
+          }
+          thumbColor="#FF0000"
+        />
+        <Text style={{ textAlign: "center", fontSize: 30 }}>
+          {this.state.status ? "Casado" : "Solteiro"}
+        </Text>
+    
+        <Button title="Criar Conta" onPress={this.entrar} />
+    
+            <Text style={styles.texto}>{this.state.nome}</Text>
+    
+          
+    </View>
+
+        );
+    };
+};
 
 export default App;
