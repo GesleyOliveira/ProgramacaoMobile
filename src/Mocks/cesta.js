@@ -1,4 +1,4 @@
-import logo from "../../assets/verduras.webp";
+import logo from "../../assets/topo.jpg";
  
 import tomate from "../../assets/frutas/Tomate.png";
 import brocolis from "../../assets/frutas/Brocolis.png";
