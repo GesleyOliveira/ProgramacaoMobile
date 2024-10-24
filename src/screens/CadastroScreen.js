@@ -7,6 +7,7 @@ export default function CadastroScreen() {
             <Text>Cadastro</Text>
             <TextInput placeholder="Nome" style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 20 }} />
             <TextInput placeholder="Email" style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 20 }} />
+            <TextInput placeholder="Senha" style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 20 }} />
             <Button title="Cadastrar" onPress={() => alert('Cadastro realizado!')} />
         </View>
     );
