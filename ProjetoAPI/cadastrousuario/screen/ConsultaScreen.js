@@ -7,7 +7,7 @@ const ConsultaScreen = () => {
 
   const handleConsulta = async () => {
     try {
-      const response = await axios.get("http://10.68.153.27:3000/api/consulta");
+      const response = await axios.get("http://10.68.152.124:3000/api/consulta");
       setDados(response.data);
     } catch (error) {
       console.log(`Erro: ${error}`);

@@ -19,6 +19,20 @@ const HomeScreen = ({ navigation }) => {
           color="#03dac6"
         />
       </View>
+      <View style={styles.buttonContainer}>
+        <Button
+          title="Ir para Atualização"
+          onPress={() => navigation.navigate("Alteração")}
+          color="#ff9800"
+        />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button
+          title="Ir para Exclusão"
+          onPress={() => navigation.navigate("Apagar")}
+          color="#f44336"
+        />
+      </View>
     </View>
   );
 };
