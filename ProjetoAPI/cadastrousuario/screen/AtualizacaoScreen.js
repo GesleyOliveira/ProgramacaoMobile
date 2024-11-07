@@ -51,7 +51,7 @@ const AtualizacaoScreen = () => {
   };
 
   const handleSelectUsuario = (usuario) => {
-    setId(usuario.id ? usuario.id.toString() : "");
+    setId(usuario.id);
     setNome(usuario.nome || "");
     setEmail(usuario.email || "");
     setSenha(""); // Opcionalmente, você pode manter a senha em branco para obrigar o usuário a redefinir

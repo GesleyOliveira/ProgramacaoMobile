@@ -44,7 +44,7 @@ router.put("/atualizacao/:id", (req, res) => {
  
   //Verificar se o usuário existe
   if (userIndex === -1) {
-    return RegExp.status(404).json({ message: "Usuário não encontrado." });
+    return res.status(404).json({ message: "Usuário não encontrado." });
   }
  
   //Validando os dados
