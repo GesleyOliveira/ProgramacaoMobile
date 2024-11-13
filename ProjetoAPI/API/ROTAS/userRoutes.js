@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 // Armazenamento em memória (simulando um banco de dados)
 let users = [];
+var id = 1;
 
 // Rota para cadastro de usuário
 router.post("/cadastro", (req, res) => {
@@ -18,7 +19,8 @@ router.post("/cadastro", (req, res) => {
   }
   
   // Criar novo usuário e adicionar ao array
-  const newUser = { id: users.length + 1, nome, email, senha };
+  const newUser = { id, nome, email, senha };
+  id ++; // Serve para sempre adicionar +1 ao próximo id criado, e não ter chance de repetir ao ficar excluindo e adicionando.
   users.push(newUser);
 
   res.status(201).json({ message: "Usuário cadastrado com sucesso!", user: newUser });

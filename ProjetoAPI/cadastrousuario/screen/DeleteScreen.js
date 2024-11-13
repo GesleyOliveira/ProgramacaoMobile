@@ -13,7 +13,7 @@ const DeleteScreen = () => {
 
     try {
       const response = await axios.delete(
-        `http://10.68.153.124:3000/api/deletar/${id}`
+        `http://10.68.152.124:3000/api/deletar/${id}`
       );
       Alert.alert("Sucesso", response.data.message);
       setId("");
@@ -24,7 +24,7 @@ const DeleteScreen = () => {
   };
 
   return (
-    <View style={style.container}>
+    <View style={styles.container}>
       <Text style={styles.title}> Deletar Usuário</Text>
 
       <TextInput
