@@ -13,7 +13,7 @@ const AtualizacaoScreen = () => {
   useEffect(() => {
     const fetchUsuarios = async () => {
       try {
-        const response = await axios.get("http://10.68.152.124:3000/api/consulta");
+        const response = await axios.get("http://10.68.152.206:3000/api/consulta");
         if (response.data && Array.isArray(response.data)) {
           setUsuarios(response.data);
         } else {
@@ -35,7 +35,7 @@ const AtualizacaoScreen = () => {
 
     try {
       const response = await axios.put(
-        `http://10.68.152.124:3000/api/atualizacao/${id}`,
+        `http://10.68.152.206:3000/api/atualizacao/${id}`,
         { nome, email, senha }
       );
       Alert.alert("Sucesso", "Usuário atualizado com sucesso!");

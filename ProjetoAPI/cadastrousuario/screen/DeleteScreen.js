@@ -10,7 +10,7 @@ const DeleteScreen = () => {
   useEffect(() => {
     const fetchUsuarios = async () => {
       try {
-        const response = await axios.get("http://10.68.152.124:3000/api/consulta");
+        const response = await axios.get("http://10.68.152.206:3000/api/consulta");
         if (response.data && Array.isArray(response.data)) {
           setUsuarios(response.data);
         } else {
@@ -32,7 +32,7 @@ const DeleteScreen = () => {
 
     try {
       const response = await axios.delete(
-        `http://10.68.152.124:3000/api/deletar/${id}`
+        `http://10.68.152.206:3000/api/deletar/${id}`
       );
       Alert.alert("Sucesso", response.data.message);
       setId("");
